@@ -1,0 +1,62 @@
+{
+  "cars": [
+    {
+      "id": "volt_1",
+      "search_regex": [
+        "volt"
+        ],
+      "title": "Chevrolet Volt (Gen 1)",
+      "type": "PHEV",
+      "ev_range": "35",
+      "battery_size": "16.0 kwh",
+      "zero_sixty": "9.2s",
+      "msrp": "$41,000",
+      "year_start": 2011,
+      "year_end": 2015,
+      "qc_type": "None"
+    },
+    {
+      "id": "volt_2",
+      "search_regex": [
+        "volt"
+        ],
+      "title": "Chevrolet Volt (Gen 2)",
+      "type": "PHEV",
+      "ev_range": "50",
+      "battery_size": "18.4 kwh",
+      "zero_sixty": "7.1s",
+      "msrp": "$34,000",
+      "year_start": 2016,
+      "qc_type": "None"
+    },
+    {
+      "id": "bolt",
+      "search_regex": [
+        "bolt"
+        ],
+      "title": "Chevrolet Bolt",
+      "type": "BEV",
+      "ev_range": "238",
+      "battery_size": "60.0 kwh",
+      "zero_sixty": "6.5s",
+      "msrp": "$37,500",
+      "year_start": 2017, 
+      "qc_type": "CCS"
+    },
+    {
+      "id": "spark",
+      "search_regex": [
+        "spark"
+        ],
+      "title": "Chevrolet Spark",
+      "type": "BEV",
+      "ev_range": "82",
+      "battery_size": "21.3 kwh",
+      "zero_sixty": "7.9s",
+      "msrp": "$37,500",
+      "year_start": 2013,
+      "year_end": 2016,
+      "qc_type": "CCS"
+    }
+  ]
+}

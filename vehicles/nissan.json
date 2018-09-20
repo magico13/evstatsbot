@@ -3,7 +3,7 @@
     {
       "id": "leaf_1",
       "search_regex": [
-        "\bleaf\b"
+        "\\bleaf\\b"
         ],
       "title": "Nissan LEAF (Gen 1)",
       "type": "BEV",
@@ -18,7 +18,7 @@
     {
       "id": "leaf_1.1",
       "search_regex": [
-        "\bleaf\b"
+        "\\bleaf\\b"
         ],
       "title": "Nissan LEAF (Gen 1, 30kwh)",
       "type": "BEV",
@@ -33,7 +33,7 @@
     {
       "id": "leaf_2",
       "search_regex": [
-        "\bleaf\b"
+        "\\bleaf\\b"
         ],
       "title": "Nissan LEAF (Gen 2)",
       "type": "BEV",

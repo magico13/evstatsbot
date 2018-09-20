@@ -49,6 +49,7 @@ def check_match(text, cars):
   text = text.lower()
   for car in cars:
     for regex in car['search_regex']:
+      print(regex)
       if re.search(regex, text):
         found.append(car)
   return found
@@ -66,6 +67,7 @@ def run_against(subreddit, cars):
       found = check_match(submission.selftext, potentialCars)
       for car in found:
         potentialCars.remove(car)
+        print(car['title'])
       foundCars += found
       submission.comments.replace_more(limit=0)
       for comment in submission.comments.list():
@@ -77,8 +79,10 @@ def run_against(subreddit, cars):
           found = check_match(comment.body, potentialCars)
           for car in found:
             potentialCars.remove(car)
+            print(car['title'])
           foundCars += found
           if len(potentialCars) == 0: break
+      if len(foundCars) == 0: continue
       post = format_post(foundCars)
       
       if not myPost:
@@ -96,8 +100,6 @@ def lists_equal(a, b):
   sortA = sorted(a, key=lambda x: x['id'])
   sortB = sorted(b, key=lambda x: x['id'])
   return (sortA == sortB)
-
-
 
 cars = load_cars()
 

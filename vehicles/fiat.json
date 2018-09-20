@@ -3,7 +3,7 @@
     {
       "id": "500e",
       "search_regex": [
-        "\b500e\b"
+        "\\b500e\\b"
         ],
       "title": "Fiat 500e",
       "type": "BEV",

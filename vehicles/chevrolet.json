@@ -3,7 +3,7 @@
     {
       "id": "volt_1",
       "search_regex": [
-        "\bvolt\b"
+        "\\bvolt\\b"
         ],
       "title": "Chevrolet Volt (Gen 1)",
       "type": "PHEV",
@@ -18,7 +18,7 @@
     {
       "id": "volt_2",
       "search_regex": [
-        "\bvolt\b"
+        "\\bvolt\\b"
         ],
       "title": "Chevrolet Volt (Gen 2)",
       "type": "PHEV",
@@ -32,7 +32,7 @@
     {
       "id": "bolt",
       "search_regex": [
-        "\bbolt\b"
+        "\\bbolt\\b"
         ],
       "title": "Chevrolet Bolt",
       "type": "BEV",
@@ -46,7 +46,7 @@
     {
       "id": "spark",
       "search_regex": [
-        "\bspark\b"
+        "\\bspark\\b"
         ],
       "title": "Chevrolet Spark",
       "type": "BEV",

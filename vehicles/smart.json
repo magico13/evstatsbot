@@ -3,8 +3,8 @@
     {
       "id": "ed",
       "search_regex": [
-        "\bsmart\b",
-        "\bed\b"
+        "\\bsmart\\b",
+        "\\bed\\b"
         ],
       "title": "Smart Fortwo ED3",
       "type": "BEV",

@@ -3,7 +3,7 @@
     {
       "id": "volt_1",
       "search_regex": [
-        "volt"
+        "\bvolt\b"
         ],
       "title": "Chevrolet Volt (Gen 1)",
       "type": "PHEV",
@@ -18,7 +18,7 @@
     {
       "id": "volt_2",
       "search_regex": [
-        "volt"
+        "\bvolt\b"
         ],
       "title": "Chevrolet Volt (Gen 2)",
       "type": "PHEV",
@@ -32,7 +32,7 @@
     {
       "id": "bolt",
       "search_regex": [
-        "bolt"
+        "\bbolt\b"
         ],
       "title": "Chevrolet Bolt",
       "type": "BEV",
@@ -41,12 +41,12 @@
       "zero_sixty": 6.5,
       "msrp": 37500,
       "year_start": 2017, 
-      "qc_type": "CCS"
+      "qc_type": "CCS*"
     },
     {
       "id": "spark",
       "search_regex": [
-        "spark"
+        "\bspark\b"
         ],
       "title": "Chevrolet Spark",
       "type": "BEV",
@@ -56,7 +56,7 @@
       "msrp": 27500,
       "year_start": 2013,
       "year_end": 2016,
-      "qc_type": "CCS"
+      "qc_type": "CCS*"
     }
   ]
 }

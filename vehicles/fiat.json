@@ -1,0 +1,19 @@
+{
+  "cars": [
+    {
+      "id": "500e",
+      "search_regex": [
+        "\b500e\b"
+        ],
+      "title": "Fiat 500e",
+      "type": "BEV",
+      "ev_range": 87,
+      "battery_size": 24,
+      "zero_sixty": 8.4,
+      "msrp": 33000,
+      "year_start": 2013,
+      "qc_type": "None"
+    }
+  ]
+}
+    

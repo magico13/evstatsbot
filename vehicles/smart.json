@@ -1,0 +1,20 @@
+{
+  "cars": [
+    {
+      "id": "ed",
+      "search_regex": [
+        "\bsmart\b",
+        "\bed\b"
+        ],
+      "title": "Smart Fortwo ED3",
+      "type": "BEV",
+      "ev_range": 58,
+      "battery_size": 17.6,
+      "zero_sixty": 11.4,
+      "msrp": 24000,
+      "year_start": 2013,
+      "qc_type": "None"
+    }
+  ]
+}
+    

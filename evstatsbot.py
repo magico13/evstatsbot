@@ -6,7 +6,7 @@ import re
 from time import sleep
 import traceback
 
-useragent = "linux:evstatsbot:v0.1.0 (by /u/magico13)"
+useragent = "linux:evstatsbot:v1.0.0 (by /u/magico13)"
 
 reddit = praw.Reddit('evstatsbot', user_agent=useragent)
 
@@ -111,31 +111,19 @@ print('{} cars loaded!'.format(len(cars)))
 
 while True:
   try:
-    #run_against('electricvehicles', cars)
+    run_against('electricvehicles', cars)
     run_against('evstatsbot', cars)
   except KeyboardInterrupt:
     print('Exiting')
     break
+  except e as praw.exceptions.APIException:
+    if e.error_type == 'RATELIMIT':
+      print('Hit rate limit. Waiting ten minutes. Msg: "{}"'.format(e.message))
+      sleep(600)
+    else:
+      print(str(e))
   except:
     traceback.print_exc()
     pass
   sleep(60)
 
-#submission = reddit.submission(id='9h9glt')
-#print(submission.selftext)
-#mentioned = []
-#lower = submission.selftext.lower()
-#for car in cars:
-#  for search in car['search_regex']:
-#    if search in lower:
-#      mentioned.append(car)
-#      break
-
-#post = format_post(mentioned)
-#print(post)
-#print(submission.author)
-#print(vars(submission))
-#print('{}: "{}"'.format(submission.author, submission.selftext))
-#submission.comments.replace_more(limit=0)
-#for comment in submission.comments.list():
-#  print('{}: "{}"'.format(comment.author, comment.body))

@@ -43,7 +43,7 @@ def format_post(mentioned):
   post += '  \n'
   post += '^(I\'m a bot and this action was done autonomously.)  \n'
   post += '^(My database is still under construction, so forgive any obviously missing data (esp Tesla variants)^)^. ^( Sorry! I\'m also very US focused *for now*.)  \n'
-  post += 'Missing, incorrect, or otherwise invalid data? Open an issue on [github](https://github.com/magico13/evstatsbot) or message /u/magico13.  \n'
+  post += 'Missing, incorrect, or otherwise invalid data? Open an issue on [github](https://github.com/magico13/evstatsbot) or message /u\/magico13.  \n'
 
   return post
 

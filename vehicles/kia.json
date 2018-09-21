@@ -1,0 +1,19 @@
+{
+  "cars": [
+    {
+      "id": "niro",
+      "search_regex": [
+        "\\bniro\\b"
+        ],
+      "title": "Kia Niro EV",
+      "type": "BEV",
+      "ev_range": 240,
+      "battery_size": 64,
+      "zero_sixty": 7.8,
+      "msrp": 40000,
+      "year_start": 2019,
+      "qc_type": "CCS"
+    }
+  ]
+}
+    

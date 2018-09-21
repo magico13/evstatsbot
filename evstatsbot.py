@@ -4,6 +4,7 @@ import os
 import datetime
 import re
 from time import sleep
+import traceback
 
 useragent = "linux:evstatsbot:v0.1.0 (by /u/magico13)"
 
@@ -26,7 +27,7 @@ def format_post(mentioned):
   post = 'These are the EVs I have seen mentioned in this thread as of {} UTC:\n\n'.format(time.strftime("%Y-%m-%d %H:%M:%S"))
   post += '|Name|Years|Type|EV Range|Battery|QC Connector|0-60|MSRP|\n'
   post += '|:--|:--|:-:|:-:|:-:|:-:|:-:|:-:|\n'
-  for car in mentioned:
+  for car in sorted(mentioned, key=lambda x: x['title']):
     name = car['title']
     years = '{}-'.format(car['year_start'])
     if 'year_end' in car: years += str(car['year_end'])
@@ -36,12 +37,14 @@ def format_post(mentioned):
     batSize = '{}kwh'.format(car['battery_size'])
     qc = car['qc_type']
     zeroSixty = '{}s'.format(car['zero_sixty'])
-    msrp = '${}'.format(car['msrp'])
+    msrp = '${:,}'.format(car['msrp'])
     post += '|{}|{}|{}|{}|{}|{}|{}|{}|\n'.format(name, years, carType, evRange, batSize, qc, zeroSixty, msrp)
   post += '||||||* = optional|||\n'
   post += '  \n'
   post += '^(I\'m a bot and this action was done autonomously.)  \n'
-  post += 'Missing, incorrect, or otherwise invalid data? Open an issue on [github](https://github.com/magico13/evstatsbot) or message /u/magico13'
+  post += '^(My database is still under construction, so forgive any obviously missing data (esp Tesla variants)^)^. ^( Sorry! I\'m also very US focused *for now*.)  \n'
+  post += 'Missing, incorrect, or otherwise invalid data? Open an issue on [github](https://github.com/magico13/evstatsbot) or message /u/magico13.  \n'
+
   return post
 
 def check_match(text, cars):
@@ -49,7 +52,6 @@ def check_match(text, cars):
   text = text.lower()
   for car in cars:
     for regex in car['search_regex']:
-      print(regex)
       if re.search(regex, text):
         found.append(car)
   return found
@@ -86,11 +88,11 @@ def run_against(subreddit, cars):
       post = format_post(foundCars)
       
       if not myPost:
-        print(post)
+        print()
         submission.reply(post)
       else:
         if not lists_equal(previouslyFound, foundCars):
-          print(post)
+          print()
           myPost.edit(post)
         else:
           print("No changes")
@@ -108,7 +110,15 @@ for car in cars:
 print('{} cars loaded!'.format(len(cars)))
 
 while True:
-  run_against('evstatsbot', cars)
+  try:
+    #run_against('electricvehicles', cars)
+    run_against('evstatsbot', cars)
+  except KeyboardInterrupt:
+    print('Exiting')
+    break
+  except:
+    traceback.print_exc()
+    pass
   sleep(60)
 
 #submission = reddit.submission(id='9h9glt')

@@ -1,0 +1,47 @@
+{
+  "cars": [
+    {
+      "id": "i3_94",
+      "search_regex": [
+        "\\bi3\\b"
+        ],
+      "title": "BMW i3 94Ah",
+      "type": "BEV/PHEV",
+      "ev_range": 114,
+      "battery_size": 33,
+      "zero_sixty": 8,
+      "msrp": 44500,
+      "year_start": 2017,
+      "qc_type": "CCS"
+    },
+    {
+      "id": "i3_60",
+      "search_regex": [
+        "\\bi3\\b"
+        ],
+      "title": "BMW i3 60Ah",
+      "type": "BEV/PHEV",
+      "ev_range": 81,
+      "battery_size": 22,
+      "zero_sixty": 8,
+      "msrp": 42400,
+      "year_start": 2013,
+      "qc_type": "CCS(*13-14)"
+    },
+    {
+      "id": "i8",
+      "search_regex": [
+        "\\bi8\\b"
+        ],
+      "title": "BMW i8",
+      "type": "PHEV",
+      "ev_range": 15,
+      "battery_size": 7.1,
+      "zero_sixty": 4.4,
+      "msrp": 136000,
+      "year_start": 2014,
+      "qc_type": "None"
+    }
+  ]
+}
+    

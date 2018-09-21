@@ -76,7 +76,7 @@ def run_against(subreddit, cars):
         #search in the comments
         if comment.author == 'evstatsbot':
           myPost = comment
-          previouslyFound = check_match(myPost.body, cars)
+          previouslyFound = get_previous_cars(myPost.body, cars)
         else:
           found = check_match(comment.body, potentialCars)
           for car in found:
@@ -88,14 +88,27 @@ def run_against(subreddit, cars):
       post = format_post(foundCars)
       
       if not myPost:
-        print()
         submission.reply(post)
       else:
         if not lists_equal(previouslyFound, foundCars):
-          print()
           myPost.edit(post)
         else:
           print("No changes")
+      print()
+
+def get_previous_cars(body, cars):
+  existing = []
+  lines = body.splitlines()
+  for line in lines:
+    split = line.split('|')
+    if len(split) > 0 and split[1] != 'Name' and split[1] != ':--':
+      title = split[1]
+      #find car with that name
+      for car in cars:
+        if car['title'] == title:
+          existing.append(car)
+          break
+  return existing
       
 def lists_equal(a, b):
   if len(a) != len(b): return False
@@ -125,5 +138,5 @@ while True:
   except:
     traceback.print_exc()
     pass
-  sleep(60)
+  sleep(300)
 

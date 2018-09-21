@@ -33,7 +33,7 @@
       "search_regex": [
         "\\bkona\\b"
         ],
-      "title": "Hyuandai Kona EV",
+      "title": "Hyundai Kona EV",
       "type": "BEV",
       "ev_range": 240,
       "battery_size": 64,

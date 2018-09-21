@@ -116,7 +116,7 @@ while True:
   except KeyboardInterrupt:
     print('Exiting')
     break
-  except e as praw.exceptions.APIException:
+  except praw.exceptions.APIException as e:
     if e.error_type == 'RATELIMIT':
       print('Hit rate limit. Waiting ten minutes. Msg: "{}"'.format(e.message))
       sleep(600)

@@ -101,7 +101,7 @@ def get_previous_cars(body, cars):
   lines = body.splitlines()
   for line in lines:
     split = line.split('|')
-    if len(split) > 0 and split[1] != 'Name' and split[1] != ':--':
+    if len(split) > 1 and split[1] != 'Name' and split[1] != ':--':
       title = split[1]
       #find car with that name
       for car in cars:

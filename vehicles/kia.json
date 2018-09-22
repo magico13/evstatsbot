@@ -18,7 +18,7 @@
       "id": "niro_phev",
       "search_regex": [
         "\\bniro phev\\b",
-        "\\bniro plug[-\\s]?in\\b",
+        "\\bniro plug[-\\s]?in\\b"
         ],
       "title": "Kia Niro PHEV",
       "type": "PHEV",

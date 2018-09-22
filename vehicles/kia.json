@@ -13,6 +13,50 @@
       "msrp": 40000,
       "year_start": 2019,
       "qc_type": "CCS"
+    },
+    {
+      "id": "niro_phev",
+      "search_regex": [
+        "\\bniro phev\\b",
+        "\\bniro plug[-\s]?in\\b",
+        ],
+      "title": "Kia Niro PHEV",
+      "type": "PHEV",
+      "ev_range": 26,
+      "battery_size": 8.9,
+      "zero_sixty": 9.0,
+      "msrp": 28000,
+      "year_start": 2018,
+      "qc_type": "None"
+    },
+    {
+      "id": "soul",
+      "search_regex": [
+        "\\bsoul\\b"
+        ],
+      "title": "Kia Soul EV",
+      "type": "BEV",
+      "ev_range": 93,
+      "battery_size": 30.5,
+      "zero_sixty": 10.7,
+      "msrp": 34500,
+      "year_start": 2015,
+      "year_end": 2017,
+      "qc_type": "CHAdeMO"
+    },
+    {
+      "id": "soul18",
+      "search_regex": [
+        "\\bsoul\\b"
+        ],
+      "title": "Kia Soul EV 32kwh",
+      "type": "BEV",
+      "ev_range": 111,
+      "battery_size": 31.8,
+      "zero_sixty": 10.7,
+      "msrp": 34000,
+      "year_start": 2018,
+      "qc_type": "CHAdeMO"
     }
   ]
 }

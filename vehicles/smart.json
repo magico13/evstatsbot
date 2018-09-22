@@ -3,7 +3,7 @@
     {
       "id": "ed",
       "search_regex": [
-        "\\bsmart\\b",
+        "\\bsmart car\\b",
         "\\bed\\b"
         ],
       "title": "Smart Fortwo ED3",

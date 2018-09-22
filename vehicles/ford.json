@@ -1,0 +1,50 @@
+{
+  "cars": [
+    {
+      "id": "focus",
+      "search_regex": [
+        "\\bfocus\\b"
+        ],
+      "title": "Ford Focus",
+      "type": "BEV",
+      "ev_range": 73,
+      "battery_size": 23,
+      "zero_sixty": 10.3,
+      "msrp": 40000,
+      "year_start": 2012,
+      "year_end": 2016
+      "qc_type": "None"
+    },
+    {
+      "id": "focus33",
+      "search_regex": [
+        "\\bfocus\\b"
+        ],
+      "title": "Ford Focus 33kwh",
+      "type": "BEV",
+      "ev_range": 115,
+      "battery_size": 33.5,
+      "zero_sixty": 9.9,
+      "msrp": 29200,
+      "year_start": 2017,
+      "year_end": 2018
+      "qc_type": "CCS"
+    },
+    {
+      "id": "fusion",
+      "search_regex": [
+        "\\bfusion\\b",
+        "\\benergi\\b",        
+        ],
+      "title": "Ford Fusion Energi",
+      "type": "PHEV",
+      "ev_range": 20,
+      "battery_size": 7.6,
+      "zero_sixty": 8.0,
+      "msrp": 39500,
+      "year_start": 2013,
+      "qc_type": "None"
+    },
+  ]
+}
+    

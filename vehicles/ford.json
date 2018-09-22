@@ -34,7 +34,7 @@
       "id": "fusion",
       "search_regex": [
         "\\bfusion\\b",
-        "\\benergi\\b",        
+        "\\benergi\\b"  
         ],
       "title": "Ford Fusion Energi",
       "type": "PHEV",

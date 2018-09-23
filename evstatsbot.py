@@ -7,8 +7,8 @@ from time import sleep
 import traceback
 
 useragent = "linux:evstatsbot:v1.0.0 (by /u/magico13)"
-minComments = 5
-minTime = 3600 #one hour
+minComments = 0
+minTime = 0 #one hour
 maxTime = 86400 #one day
 
 reddit = praw.Reddit('evstatsbot', user_agent=useragent)
@@ -47,7 +47,7 @@ def format_post(mentioned):
     post += '|{}|{}|{}|{}|{}|{}|{}|{}|\n'.format(name, years, carType, evRange, batSize, qc, zeroSixty, msrp)
   post += '||||||* = optional|||\n'
   post += '  \n'
-  post += '^(I\'m a bot and this action was done autonomously.) ^([Why?](https://github.com/magico13/evstatsbot/blob/master/README.md)^) Created by /u\/magico13  \n'
+  post += '^(I\'m a bot and this action was done autonomously.) ^([Why?](https://github.com/magico13/evstatsbot/blob/master/README.md) ) ^(Created by [magico13](https://reddit.com/user/magico13) )  \n'
   return post
 
 def check_match(text, cars):
@@ -127,8 +127,8 @@ print('{} cars loaded!'.format(len(cars)))
 
 while True:
   try:
-    run_against('electricvehicles', cars)
-    #run_against('evstatsbot', cars)
+    #run_against('electricvehicles', cars)
+    run_against('evstatsbot', cars)
   except KeyboardInterrupt:
     print('Exiting')
     break

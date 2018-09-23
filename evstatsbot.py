@@ -7,8 +7,8 @@ from time import sleep
 import traceback
 
 useragent = "linux:evstatsbot:v1.0.0 (by /u/magico13)"
-minComments = 0
-minTime = 0 #one hour
+minComments = 5
+minTime = 3600 #one hour
 maxTime = 86400 #one day
 
 reddit = praw.Reddit('evstatsbot', user_agent=useragent)

@@ -127,8 +127,8 @@ print('{} cars loaded!'.format(len(cars)))
 
 while True:
   try:
-    #run_against('electricvehicles', cars)
-    run_against('evstatsbot', cars)
+    run_against('electricvehicles', cars)
+    #run_against('evstatsbot', cars)
   except KeyboardInterrupt:
     print('Exiting')
     break

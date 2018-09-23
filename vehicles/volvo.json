@@ -1,0 +1,18 @@
+{
+  "cars": [
+    {
+      "id": "v60",
+      "search_regex": [
+      "\\bv60\\b"
+      ],
+      "title": "Volvo V60",
+      "type": "PHEV",
+      "ev_range": 28,
+      "battery_size": 10.4, 
+      "zero_sixty": 4.8,
+      "msrp": 44000,
+      "year_start": 2018,
+      "qc_type": "None"
+    }
+  ]
+}

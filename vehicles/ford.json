@@ -3,7 +3,9 @@
     {
       "id": "focus",
       "search_regex": [
-        "\\bfocus\\b"
+        "\\bfocus ev\\b",
+        "\\belectric focus\\b",
+        "\\bford focus\\b"
         ],
       "title": "Ford Focus",
       "type": "BEV",
@@ -18,7 +20,9 @@
     {
       "id": "focus33",
       "search_regex": [
-        "\\bfocus\\b"
+        "\\bfocus ev\\b",
+        "\\belectric focus\\b",
+        "\\bford focus\\b"
         ],
       "title": "Ford Focus 33kwh",
       "type": "BEV",

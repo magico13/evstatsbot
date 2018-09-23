@@ -7,6 +7,9 @@ from time import sleep
 import traceback
 
 useragent = "linux:evstatsbot:v1.0.0 (by /u/magico13)"
+minComments = 5
+minTime = 3600 #one hour
+maxTime = 86400 #one day
 
 reddit = praw.Reddit('evstatsbot', user_agent=useragent)
 
@@ -29,22 +32,22 @@ def format_post(mentioned):
   post += '|:--|:--|:-:|:-:|:-:|:-:|:-:|:-:|\n'
   for car in sorted(mentioned, key=lambda x: x['title']):
     name = car['title']
-    years = '{}-'.format(car['year_start'])
-    if 'year_end' in car: years += str(car['year_end'])
-    else: years += 'present'
+    years = '{}'.format(car['year_start'])
+    if 'year_end' in car: years += '-'+str(car['year_end'])
+    elif datetime.datetime.now().year < car['year_start']: years += '+'
+    else: years += '-present'
     carType = car['type']
     evRange = '{} miles'.format(car['ev_range'])
     batSize = '{}kwh'.format(car['battery_size'])
     qc = car['qc_type']
     zeroSixty = '{}s'.format(car['zero_sixty'])
-    msrp = '${:,}'.format(car['msrp'])
+    msrp = '${}'.format(car['msrp'])
+    if car['msrp'] is int: 
+      msrp = '${:,}'.format(car['msrp'])
     post += '|{}|{}|{}|{}|{}|{}|{}|{}|\n'.format(name, years, carType, evRange, batSize, qc, zeroSixty, msrp)
   post += '||||||* = optional|||\n'
   post += '  \n'
-  post += '^(I\'m a bot and this action was done autonomously.)  \n'
-  post += '^(My database is still under construction, so forgive any obviously missing data (esp Tesla variants)^)^. ^( Sorry! I\'m also very US focused *for now*.)  \n'
-  post += 'Missing, incorrect, or otherwise invalid data? Open an issue on [github](https://github.com/magico13/evstatsbot) or message /u\/magico13.  \n'
-
+  post += '^(I\'m a bot and this action was done autonomously.) ^([Why?](https://github.com/magico13/evstatsbot/blob/master/README.md)^) Created by /u\/magico13  \n'
   return post
 
 def check_match(text, cars):
@@ -58,8 +61,8 @@ def check_match(text, cars):
 
 def run_against(subreddit, cars):
   for submission in reddit.subreddit(subreddit).new():
-    if not submission.locked and (datetime.datetime.utcnow().timestamp() - submission.created_utc) > 3600 and (datetime.datetime.utcnow().timestamp() - submission.created_utc) < 86400:
-      # must be not locked, over an hour old, and less than a day old
+    if not submission.locked and submission.num_comments >= minComments and (datetime.datetime.utcnow().timestamp() - submission.created_utc) > minTime and (datetime.datetime.utcnow().timestamp() - submission.created_utc) < maxTime:
+      # must be not locked, have 5+ comment, over an hour old, and less than a day old
       #check the self text, then each comment in the submission
       myPost = None
       previouslyFound = []
@@ -125,14 +128,14 @@ print('{} cars loaded!'.format(len(cars)))
 while True:
   try:
     run_against('electricvehicles', cars)
-    run_against('evstatsbot', cars)
+    #run_against('evstatsbot', cars)
   except KeyboardInterrupt:
     print('Exiting')
     break
   except praw.exceptions.APIException as e:
     if e.error_type == 'RATELIMIT':
       print('Hit rate limit. Waiting ten minutes. Msg: "{}"'.format(e.message))
-      sleep(600)
+      sleep(300)
     else:
       print(str(e))
   except:

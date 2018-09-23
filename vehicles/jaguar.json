@@ -1,0 +1,18 @@
+{
+  "cars": [
+    {
+      "id": "i-pace",
+      "search_regex": [
+        "\\bi-?pace\\b"
+      ],
+      "title": "Jaguar I-Pace",
+      "type": "BEV",
+      "ev_range": 240,
+      "battery_size": 90, 
+      "zero_sixty": 4.5,
+      "msrp": 69500,
+      "year_start": 2019,
+      "qc_type": "CCS"
+    }
+  ]
+}

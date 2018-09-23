@@ -1,0 +1,37 @@
+{
+  "cars": [
+    {
+      "id": "egolf1",
+      "search_regex": [
+      "\\begolf\\b",
+      "\\be golf\\b",
+      "\\be-golf\\b"
+      ],
+      "title": "Volkswagen e-Golf (24kwh)",
+      "type": "BEV",
+      "ev_range": 83,
+      "battery_size": 24.2, 
+      "zero_sixty": 10.0,
+      "msrp": 33500,
+      "year_start": 2015,
+      "year_end": 2016,
+      "qc_type": "CCS*"
+    },
+    {
+      "id": "egolf2",
+      "search_regex": [
+      "\\begolf\\b",
+      "\\be golf\\b",
+      "\\be-golf\\b"
+      ],
+      "title": "Volkswagen e-Golf (36kwh)",
+      "type": "BEV",
+      "ev_range": 125,
+      "battery_size": 35.8, 
+      "zero_sixty": 8.5,
+      "msrp": 30500,
+      "year_start": 2017,
+      "qc_type": "CCS*"
+    }
+  ]
+}

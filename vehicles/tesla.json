@@ -1,130 +1,48 @@
 {
   "cars": [
     {
-      "id": "3LR_RWD",
+      "id": "model3",
       "search_regex": [
         "\\bmodel 3\\b",
         "\\btesla m3\\b",
         "\\btm3\\b"
         ],
-      "title": "Tesla Model 3 LR RWD",
+      "title": "Tesla Model 3",
       "type": "BEV",
-      "ev_range": 310,
-      "battery_size": 75,
-      "zero_sixty": 5.1,
-      "msrp": 49000,
+      "ev_range": "220-310",
+      "battery_size": "50-75",
+      "zero_sixty": "3.5-5.9",
+      "msrp": "35,000-69,000",
       "year_start": 2017,
       "qc_type": "Tesla"
     },
     {
-      "id": "3SR_RWD",
-      "search_regex": [
-        "\\bmodel 3\\b",
-        "\\btesla m3\\b",
-        "\\btm3\\b"
-        ],
-      "title": "Tesla Model 3 SR RWD",
-      "type": "BEV",
-      "ev_range": 220,
-      "battery_size": 50,
-      "zero_sixty": 5.6,
-      "msrp": 35000,
-      "year_start": 2018,
-      "qc_type": "Tesla"
-    },
-    {
-      "id": "S75D",
+      "id": "models",
       "search_regex": [
         "\\bmodel s\\b",
-        "\\btesla ms\\b",
-        "\\b75d\\b"
+        "\\btesla ms\\b"
         ],
-      "title": "Tesla Model S 75D",
+      "title": "Tesla Model S",
       "type": "BEV",
-      "ev_range": 259,
-      "battery_size": 75,
-      "zero_sixty": 4.2,
-      "msrp": 77000,
+      "ev_range": "259-335",
+      "battery_size": "75-100",
+      "zero_sixty": "2.3-4.2",
+      "msrp": "77,000-135,000",
       "year_start": 2016,
       "qc_type": "Tesla"
     },
     {
-      "id": "S100D",
-      "search_regex": [
-        "\\bmodel s\\b",
-        "\\btesla ms\\b",
-        "\\b100d\\b"
-        ],
-      "title": "Tesla Model S 100D",
-      "type": "BEV",
-      "ev_range": 335,
-      "battery_size": 100,
-      "zero_sixty": 3.6,
-      "msrp": 96500,
-      "year_start": 2017,
-      "qc_type": "Tesla"
-    },
-    {
-      "id": "SP100D",
-      "search_regex": [
-        "\\bmodel s\\b",
-        "\\btesla ms\\b",
-        "\\bp100d\\b"
-        ],
-      "title": "Tesla Model S P100D",
-      "type": "BEV",
-      "ev_range": 315,
-      "battery_size": 100,
-      "zero_sixty": 2.3,
-      "msrp": 135000,
-      "year_start": 2016,
-      "qc_type": "Tesla"
-    },
-    {
-      "id": "X75D",
+      "id": "modelx",
       "search_regex": [
         "\\bmodel x\\b",
-        "\\btesla mx\\b",
-        "\\b75d\\b"
+        "\\btesla mx\\b"
         ],
-      "title": "Tesla Model X 75D",
+      "title": "Tesla Model X",
       "type": "BEV",
-      "ev_range": 237,
-      "battery_size": 75,
-      "zero_sixty": 4.9,
-      "msrp": 83000,
-      "year_start": 2016,
-      "qc_type": "Tesla"
-    },
-    {
-      "id": "X100D",
-      "search_regex": [
-        "\\bmodel x\\b",
-        "\\btesla mx\\b",
-        "\\b100d\\b"
-        ],
-      "title": "Tesla Model X 100D",
-      "type": "BEV",
-      "ev_range": 295,
-      "battery_size": 100,
-      "zero_sixty": 4.7,
-      "msrp": 99500,
-      "year_start": 2017,
-      "qc_type": "Tesla"
-    },
-    {
-      "id": "XP100D",
-      "search_regex": [
-        "\\bmodel x\\b",
-        "\\btesla mx\\b",
-        "\\bp100d\\b"
-        ],
-      "title": "Tesla Model X P100D",
-      "type": "BEV",
-      "ev_range": 289,
-      "battery_size": 100,
-      "zero_sixty": 2.9,
-      "msrp": 140000,
+      "ev_range": "237-295",
+      "battery_size": "75-100",
+      "zero_sixty": "2.9-4.9",
+      "msrp": "83,000-140,000",
       "year_start": 2016,
       "qc_type": "Tesla"
     }

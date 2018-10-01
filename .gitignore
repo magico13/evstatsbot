@@ -105,4 +105,4 @@ venv.bak/
 
 *.ini
 *.suo
-/.vs/slnx.sqlite
+/.vs

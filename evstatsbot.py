@@ -6,10 +6,13 @@ import re
 from time import sleep
 import traceback
 
-useragent = "linux:evstatsbot:v1.0.0 (by /u/magico13)"
+useragent = "linux:evstatsbot:v1.1.0 (by /u/magico13)"
 minComments = 5
 minTime = 3600 #one hour
 maxTime = 86400 #one day
+minScore = -1 #min score to have the bot delete its post and blacklist the thread
+
+thread_blacklist = [] #thread ids to ignore
 
 reddit = praw.Reddit('evstatsbot', user_agent=useragent)
 
@@ -47,7 +50,7 @@ def format_post(mentioned):
     post += '|{}|{}|{}|{}|{}|{}|{}|{}|\n'.format(name, years, carType, evRange, batSize, qc, zeroSixty, msrp)
   post += '||||||* = optional|||\n'
   post += '  \n'
-  post += '^(I\'m a bot and this action was done autonomously.) ^([Why?](https://github.com/magico13/evstatsbot/blob/master/README.md) ) ^(Created by [magico13](https://reddit.com/user/magico13) )  \n'
+  post += 'I\'m a bot and this action was done autonomously. [Why?](https://github.com/magico13/evstatsbot/blob/master/README.md) Created by [magico13](https://reddit.com/user/magico13)  \n'
   return post
 
 def check_match(text, cars):
@@ -64,6 +67,7 @@ def run_against(subreddit, cars):
     if not submission.locked and submission.num_comments >= minComments and (datetime.datetime.utcnow().timestamp() - submission.created_utc) > minTime and (datetime.datetime.utcnow().timestamp() - submission.created_utc) < maxTime:
       # must be not locked, have 5+ comment, over an hour old, and less than a day old
       #check the self text, then each comment in the submission
+      if submission.id in thread_blacklist: continue
       myPost = None
       previouslyFound = []
       print(submission.title)
@@ -79,6 +83,12 @@ def run_against(subreddit, cars):
         #search in the comments
         if comment.author == 'evstatsbot':
           myPost = comment
+          if myPost.score <= minScore:
+            #delete and blacklist
+            myPost.delete()
+            thread_blacklist.append(submission.id)
+            foundCars.clear()
+            break
           previouslyFound = get_previous_cars(myPost.body, cars)
         else:
           found = check_match(comment.body, potentialCars)
@@ -89,7 +99,6 @@ def run_against(subreddit, cars):
           if len(potentialCars) == 0: break
       if len(foundCars) == 0: continue
       post = format_post(foundCars)
-      
       if not myPost:
         submission.reply(post)
       else:

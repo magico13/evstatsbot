@@ -61,10 +61,10 @@ def format_post(mentioned):
     else: years += '-present'
     carType = car['type']
     rangeSplit = str(car['ev_range']).split('-')
-    rangeLow = rangeSplit[0]
+    rangeLow = int(rangeSplit[0])
     rangeKm = str(round(rangeLow*1.60934))
     if len(rangeSplit) > 1:
-      rangeHigh = rangeSplit[1]
+      rangeHigh = int(rangeSplit[1])
       rangeKm += '-'+str(round(rangeHigh*1.60934))
     evRange = '{} miles ({} km)'.format(car['ev_range'], rangeKm)
     batSize = '{}kwh'.format(car['battery_size'])

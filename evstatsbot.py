@@ -60,8 +60,7 @@ def format_post(mentioned):
     elif datetime.datetime.now().year < car['year_start']: years += '+'
     else: years += '-present'
     carType = car['type']
-    rangeSplit = car['ev_range'].split('-')
-    
+    rangeSplit = str(car['ev_range']).split('-')
     rangeLow = rangeSplit[0]
     rangeKm = str(round(rangeLow*1.60934))
     if len(rangeSplit) > 1:

@@ -28,6 +28,26 @@ def load_cars():
             cars += carset['cars']
   return cars
   
+def load_blacklist():
+  global thread_blacklist
+  thread_blacklist.clear()
+  try:
+    with open('thread_blacklist.txt', 'r') as f:
+      for line in f:
+        id = line.strip()
+        submission = reddit.submission(id=id)
+        if submission and (datetime.datetime.utcnow().timestamp() - submission.created_utc) < maxTime*5:
+          thread_blacklist.append(line.strip()) #only load this blacklist item if the submission was created less than 5 maxTimes ago
+    print('Loaded blacklist of {} items'.format(len(thread_blacklist)))
+  except:
+    print('Couldn\'t open blacklist file')
+
+def save_blacklist():
+  print('Saving blacklist of {} items'.format(len(thread_blacklist)))
+  with open('thread_blacklist.txt', 'w') as f:
+    for id in thread_blacklist:
+      f.write(id+'\n')
+
 def format_post(mentioned):
   time = datetime.datetime.utcnow()
   post = 'These are the EVs I have seen mentioned in this thread as of {} UTC:\n\n'.format(time.strftime("%Y-%m-%d %H:%M:%S"))
@@ -70,6 +90,7 @@ def check_match(text, cars):
   return found
 
 def run_against(subreddit, cars):
+  global thread_blacklist
   for submission in reddit.subreddit(subreddit).new():
     if not submission.locked and submission.num_comments >= minComments and (datetime.datetime.utcnow().timestamp() - submission.created_utc) > minTime and (datetime.datetime.utcnow().timestamp() - submission.created_utc) < maxTime:
       # must be not locked, have 5+ comment, over an hour old, and less than a day old
@@ -92,9 +113,11 @@ def run_against(subreddit, cars):
           myPost = comment
           if myPost.score <= minScore:
             #delete and blacklist
+            print('Deleting post on "{}". Score is {}'.format(submission.title, myPost.score))
             myPost.delete()
             thread_blacklist.append(submission.id)
             foundCars.clear()
+            save_blacklist()
             break
           previouslyFound = get_previous_cars(myPost.body, cars)
         else:
@@ -135,6 +158,7 @@ def lists_equal(a, b):
   sortB = sorted(b, key=lambda x: x['id'])
   return (sortA == sortB)
 
+load_blacklist()
 cars = load_cars()
 
 for car in cars:

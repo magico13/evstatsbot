@@ -31,3 +31,5 @@ Just submit an issue or pull request with the information formatted as follows. 
 - Toyota Prius Plug-in
 - Tesla Roadster (original and 2020)
 - Porsche Mission E (or Taycan or whatever it is now)
+- Zero Motorcycles
+- Energica Motorcycles?

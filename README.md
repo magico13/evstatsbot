@@ -33,4 +33,5 @@ Just submit an issue or pull request with the information formatted as follows. 
 - Porsche Mission E (or Taycan or whatever it is now)
 - Zero Motorcycles
 - Energica Motorcycles?
+- BMW C Evolution
 - Honda Clarity

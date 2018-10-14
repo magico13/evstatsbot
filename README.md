@@ -35,3 +35,4 @@ Just submit an issue or pull request with the information formatted as follows. 
 - Energica Motorcycles?
 - BMW C Evolution
 - Honda Clarity
+- Rav4 EV
